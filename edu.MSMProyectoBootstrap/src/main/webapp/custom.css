@@ -78,3 +78,21 @@ colBig{
 .menuNavegador{
 	background-color: orange;
 }
+
+.fueraLink{
+	text-decoration: none;
+	color: black;
+}
+
+.colonia{
+	margin-top: 4rem;
+}
+
+.imagenesCompra{
+	width: 14rem;
+}
+
+.kanji{
+	width: 3rem;
+}
+
