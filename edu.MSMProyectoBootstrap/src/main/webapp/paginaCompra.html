@@ -170,29 +170,30 @@
 		</div>
 
 		<div class="container px-5 my-5 p-3" style="background-color: orange;">
-			<form onsubmit="return hola()" id="contactForm" data-sb-form-api-token="API_TOKEN">
+			<form onsubmit="return validadorCampos()" id="contactForm" data-sb-form-api-token="API_TOKEN">
 				<div class="mb-3">
 					<label class="form-label" for="nombre">NOMBRE</label>
+					<div id="error-nombre" class="error-message">Por favor, ingresa un nombre válido.</div>
 					<input class="form-control" required id="nombre" type="text" placeholder="NOMBRE"
 						data-sb-validations="required">
-					<div class="invalid-feedback" data-sb-feedback="nombre:required">NOMBRE is required.</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="apellidos">APELLIDOS</label>
-					<input class="form-control" id="apellidos" required type="text" placeholder="APELLIDOS"
+					<div id="error-apellidos" class="error-message">Por favor, ingresa apellido/s válido/s.</div>
+					<input class="form-control" id="apellidos"  type="text" placeholder="APELLIDOS"
 						data-sb-validations="required">
-					<div class="invalid-feedback" data-sb-feedback="apellidos:required">APELLIDOS is required.</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="gmail">GMAIL</label>
-					<input class="form-control" id="gmail" required type="email" placeholder="GMAIL"
+					<div id="error-gmail" class="error-message">Por favor, ingresa un correo válido/s.</div>
+					<input class="form-control" id="gmail"  type="email" placeholder="GMAIL"
 						data-sb-validations="required,email">
 					<div class="invalid-feedback" data-sb-feedback="gmail:required">GMAIL is required.</div>
 					<div class="invalid-feedback" data-sb-feedback="gmail:email">GMAIL Email is not valid.</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="telefono">TELEFONO</label>
-					<input class="form-control" id="telefono" required type="text" placeholder="TELEFONO"
+					<input class="form-control" id="telefono"  type="text" placeholder="TELEFONO"
 						data-sb-validations="required">
 					<div class="invalid-feedback" data-sb-feedback="telefono:required">TELEFONO is required.</div>
 				</div>
@@ -215,7 +216,7 @@
 					<div class="text-center text-danger mb-3">Error sending message!</div>
 				</div>
 				<div class="d-grid">
-					<button class="btn btn-primary btn-lg enable" id="submitButton" onclick="return nombre()" >Submit</button>
+					<button class="btn btn-primary btn-lg enable" id="submitButton" >Submit</button>
 				</div>
 				
 			</form>
