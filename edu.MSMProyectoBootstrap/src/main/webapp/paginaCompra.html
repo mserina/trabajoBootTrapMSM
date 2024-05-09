@@ -114,7 +114,7 @@
 					<tr>
 						<th scope="row">2</th>
 						<td class="p-5"><h3>VEGETA SSJ1</h3></td>
-						<td class="p-5"><h3>x8</h3></td>	
+						<td class="p-5"><h3><button class="counter-btn" onclick="decrement()">-</button>8</h3><button class="counter-btn" onclick="increment()">+</button></td>	
 						<td class="p-5"><h3>80€</h3></td>
 						<td class="p-1"><img src="imagenesHtml/vegeta ssj.png" class="imagenesCompra"></td>					
 					</tr>
@@ -193,6 +193,7 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label" for="telefono">TELEFONO</label>
+					<div id="error-telefono" class="error-message">Por favor, ingresa un telefono válido/s.</div>
 					<input class="form-control" id="telefono"  type="text" placeholder="TELEFONO"
 						data-sb-validations="required">
 					<div class="invalid-feedback" data-sb-feedback="telefono:required">TELEFONO is required.</div>
