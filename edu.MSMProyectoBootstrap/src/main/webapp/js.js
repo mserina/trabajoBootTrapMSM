@@ -2,24 +2,47 @@
  * 
  */
 
-let veces = 0;
-const dataStored = localStorage.getItem("estado");
-if (dataStored) {
-   veces = dataStored;
+alert ("HOLAAA");
+
+
+function increment(itemId, itemCompra, precioBase) {
+    let cantidadElement = document.getElementById(itemId);
+    let cantidad = Number(cantidadElement.innerText);
+    cantidad++;
+	cantidadElement.innerHTML = cantidad;
+	
+	
+	let precioElement = document.getElementById(itemCompra);
+    let precioTotalProducto = cantidad * precioBase;
+    precioElement.innerHTML = precioTotalProducto;
+    
 }
-if (document.getElementById("contador"))
-   document.getElementById("contador").innerHTML = veces
 
-let arr =[0,0]
-const dataStored2 = localStorage.getItem("array");
-if (dataStored2) {
-   //arr = dataStored2;
-   arr = JSON.parse(dataStored2)
+
+function decrement(itemId, itemCompra, precioBase) {
+    let cantidadElement = document.getElementById(itemId);
+    let cantidad = Number(cantidadElement.innerText);
+    cantidad--;
+    cantidadElement.innerHTML = cantidad;
+    
+    if(cantidad < 1){
+		cantidad = 1;
+	}
+	
+	
+	let precioElement = document.getElementById(itemCompra);
+    let precioTotalProducto = cantidad * precioBase;
+    precioElement.innerHTML = precioTotalProducto;
+
+    
 }
-if (document.getElementById("contador2"))
-   document.getElementById("contador2").innerHTML = typeof(arr)
 
 
+    
+    
+        
+   
+    
 
 
 
