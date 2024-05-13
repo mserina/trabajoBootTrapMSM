@@ -4,8 +4,9 @@
 
 alert ("HOLAAA");
 
+var precioTotal = 0;
 
-function increment(itemId, itemCompra, precioBase) {
+function increment(itemId, itemCompra, precioBase, precioCarrito) {
     let cantidadElement = document.getElementById(itemId);
     let cantidad = Number(cantidadElement.innerText);
     cantidad++;
@@ -16,26 +17,50 @@ function increment(itemId, itemCompra, precioBase) {
     let precioTotalProducto = cantidad * precioBase;
     precioElement.innerHTML = precioTotalProducto;
     
+    let precioCarritoElement = document.getElementById(precioCarrito);
+    let precioCarritoValor = Number(precioCarritoElement.innerText);
+	precioTotal = precioCarritoValor;
+    let precioTotalCarrito = precioTotal + precioBase;
+    precioCarritoElement.innerHTML = precioTotalCarrito;
+    
 }
 
 
-function decrement(itemId, itemCompra, precioBase) {
+function decrement(itemId, itemCompra, precioBase, precioCarrito) {
     let cantidadElement = document.getElementById(itemId);
     let cantidad = Number(cantidadElement.innerText);
     cantidad--;
-    cantidadElement.innerHTML = cantidad;
-    
-    if(cantidad < 1){
+
+     if(cantidad <= 1){
 		cantidad = 1;
 	}
-	
-	
+    cantidadElement.innerHTML = cantidad;
+    
 	let precioElement = document.getElementById(itemCompra);
     let precioTotalProducto = cantidad * precioBase;
     precioElement.innerHTML = precioTotalProducto;
-
     
+	let precioCarritoElement = document.getElementById(precioCarrito);
+    let precioCarritoValor = Number(precioCarritoElement.innerText);
+    
+   
+	
+	precioTotal = precioCarritoValor;
+    let precioTotalCarrito = precioTotal - precioBase;
+    
+     if (cantidad <= 1){
+   		 if (precioCarritoValor <= 41 & cantidad == 1) {
+          return;
+    	}
+    
+	}
+	
+	 precioCarritoElement.innerHTML = precioTotalCarrito;
+   	 return;
+ 
 }
+
+
 
 
     
