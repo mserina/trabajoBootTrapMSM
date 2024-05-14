@@ -143,6 +143,8 @@ function validadorCampos(){
 	
 	if((hola() == true) && (apellidos() == true) && (gmail() == true) && (telefono() == true))
 	{
+		
+		 limpiarCarrito();
 		return true;	
 	}
 	else{
