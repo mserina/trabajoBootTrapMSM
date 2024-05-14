@@ -4,7 +4,31 @@
 
 alert ("HOLAAA");
 
-var precioTotal = 0;
+const memoria = window.localStorage;
+
+window.onload = function() {
+    for (let i = 1; i <= 3; i++) {
+        let itemId = "producto" + i;
+        let cantidad = localStorage.getItem(itemId); 
+        if (cantidad !== null) {
+            document.getElementById(itemId).innerText = cantidad; 
+        }
+        //Cargar precio de los productos 
+        let itemCompra = "productoPrecio" + i;
+		let precioArticulo = localStorage.getItem(itemCompra); 
+		if (precioArticulo !== null) {
+            document.getElementById(itemCompra).innerText = precioArticulo; 
+        }
+
+    }
+   
+        let carritoItem = "precioTotalCarrito";
+        let precioCarrito = localStorage.getItem(carritoItem); 
+        if (precioCarrito !== null) {
+            document.getElementById(carritoItem).innerText = precioCarrito; 
+        }
+}
+
 
 function increment(itemId, itemCompra, precioBase, precioCarrito) {
     let cantidadElement = document.getElementById(itemId);
@@ -12,10 +36,14 @@ function increment(itemId, itemCompra, precioBase, precioCarrito) {
     cantidad++;
 	cantidadElement.innerHTML = cantidad;
 	
+	localStorage.setItem(itemId, cantidad);
+
 	
 	let precioElement = document.getElementById(itemCompra);
     let precioTotalProducto = cantidad * precioBase;
     precioElement.innerHTML = precioTotalProducto;
+    
+    localStorage.setItem(itemCompra, precioTotalProducto);
     
     let precioCarritoElement = document.getElementById(precioCarrito);
     let precioCarritoValor = Number(precioCarritoElement.innerText);
@@ -23,49 +51,87 @@ function increment(itemId, itemCompra, precioBase, precioCarrito) {
     let precioTotalCarrito = precioTotal + precioBase;
     precioCarritoElement.innerHTML = precioTotalCarrito;
     
+    localStorage.setItem(precioCarrito, precioTotalCarrito);
+
 }
 
 
 function decrement(itemId, itemCompra, precioBase, precioCarrito) {
+    // Adquirir el valor de la cantidad y el precioCarrito
     let cantidadElement = document.getElementById(itemId);
     let cantidad = Number(cantidadElement.innerText);
-    cantidad--;
-
-     if(cantidad <= 1){
-		cantidad = 1;
-	}
-    cantidadElement.innerHTML = cantidad;
-    
-	let precioElement = document.getElementById(itemCompra);
-    let precioTotalProducto = cantidad * precioBase;
-    precioElement.innerHTML = precioTotalProducto;
-    
 	let precioCarritoElement = document.getElementById(precioCarrito);
     let precioCarritoValor = Number(precioCarritoElement.innerText);
     
-   
-	
-	precioTotal = precioCarritoValor;
-    let precioTotalCarrito = precioTotal - precioBase;
+    // Verificar que el precio total no sea menor que el precio base
+   if (precioCarritoValor - precioBase < 41) {
+        return;
+    }
     
-     if (cantidad <= 1){
-   		 if (precioCarritoValor <= 41 & cantidad == 1) {
-          return;
-    	}
-    
+    if(cantidadElement.innerHTML == 1 && precioCarritoValor != 41){
+		return;
 	}
+    
+    let precioTotalCarrito = precioCarritoValor - precioBase;
+    precioCarritoElement.innerHTML = precioTotalCarrito;
+    
+    localStorage.setItem(precioCarrito, precioTotalCarrito);
+
+    cantidad--;
+
+    // Verificar que la cantidad mínima sea 1
+    if (cantidad < 1) {
+        cantidad = 1;
+    }
+    cantidadElement.innerHTML = cantidad;
 	
-	 precioCarritoElement.innerHTML = precioTotalCarrito;
-   	 return;
- 
+	localStorage.setItem(itemId, cantidad);
+
+
+    // Resto de tu lógica para actualizar precios, etc.
+    let precioElement = document.getElementById(itemCompra);
+    let precioTotalProducto = cantidad * precioBase;
+    precioElement.innerHTML = precioTotalProducto;
+    
+    localStorage.setItem(itemCompra, precioTotalProducto);
 }
 
-
-
-
+    function limpiarArticulo(itemId, itemCompra, precioBase, precioCarrito){
+		
+		let cantidadElement = document.getElementById(itemId);
+    	let cantidad = Number(cantidadElement.innerText);
+    	cantidadElement.innerHTML = 1;
+    	
+    	let precioElement = document.getElementById(itemCompra);
+    	let precioProducto = Number(precioElement.innerHTML);
+    	precioElement.innerHTML = precioBase;
+    	
+    	let precioCarritoElement = document.getElementById(precioCarrito);
+    	let precioCarritoValor = Number(precioCarritoElement.innerText);
+    	let precioARestar = precioProducto - precioBase;
+    	let precioTotal = precioARestar - precioCarritoValor;
+    	if(precioTotal < 41){
+			
+			precioTotal = precioCarritoValor - precioARestar;
+			
+			if(precioCarritoValor == 41){
+				
+				precioTotal = precioCarritoValor;
+			}
+		}
+    	precioCarritoElement.innerHTML = precioTotal;
     
-    
+		localStorage.setItem(itemId, 1);
+		localStorage.setItem(itemCompra, precioBase);
+		localStorage.setItem(precioCarrito, precioTotal);
+	}
         
+        
+    function limpiarCarrito()
+    {
+		memoria.clear();
+	}
+
    
     
 

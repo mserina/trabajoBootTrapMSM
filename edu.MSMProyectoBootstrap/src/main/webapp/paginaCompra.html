@@ -107,22 +107,22 @@
 					<tr>
 						<th scope="row">1</th>
 						<td class="p-5"><h3>GOKU</h3></td>
-						<td class="p-5"><h3><button class="counter-btn" onclick="decrement('goku', 'gokuPrecio', 15, 'precioTotalCarrito')">-</button><span id="goku">1</span></h3><button class="counter-btn" onclick="increment('goku', 'gokuPrecio', 15, 'precioTotalCarrito')">+</button></td>
-						<td class="p-5"><h3><span id="gokuPrecio">15</span></h3></td>	
+						<td class="p-5"><h3><button class="counter-btn" onclick="decrement('producto1', 'productoPrecio1', 15, 'precioTotalCarrito')">-</button><span id="producto1">1</span></h3><button class="counter-btn" onclick="increment('producto1', 'productoPrecio1', 15, 'precioTotalCarrito')">+</button><button class="counter-btn" onclick="limpiarArticulo('producto1', 'productoPrecio1', 15, 'precioTotalCarrito')">x</button></td>
+						<td class="p-5"><h3><span id="productoPrecio1">15</span></h3></td>	
 						<td class="p-1"><img src="imagenesHtml/goku.png" class="imagenesCompra"></td>					
 					</tr>
 					<tr>
 						<th scope="row">2</th>
 						<td class="p-5"><h3>VEGETA SSJ1</h3></td>
-						<td class="p-5"><h3><button class="counter-btn" onclick="decrement('vegeta', 'vegetaPrecio', 6, 'precioTotalCarrito')">-</button><span id="vegeta">1</span></h3><button class="counter-btn" onclick="increment('vegeta', 'vegetaPrecio', 6, 'precioTotalCarrito')">+</button></td>	
-						<td class="p-5"><h3><span id="vegetaPrecio">6</span></h3></td>
+						<td class="p-5"><h3><button class="counter-btn" onclick="decrement('producto2', 'productoPrecio2', 6, 'precioTotalCarrito')">-</button><span id="producto2">1</span></h3><button class="counter-btn" onclick="increment('producto2', 'productoPrecio2', 6, 'precioTotalCarrito')">+</button><button class="counter-btn" onclick="limpiarArticulo('producto2', 'productoPrecio2', 6, 'precioTotalCarrito')">x</button></td>	
+						<td class="p-5"><h3><span id="productoPrecio2">6</span></h3></td>
 						<td class="p-1"><img src="imagenesHtml/vegeta ssj.png" class="imagenesCompra"></td>					
 					</tr>
 					<tr>
 						<th scope="row">3</th>
 						<td class="p-5"><h3>BUU</h3></td>
-						<td class="p-5"><h3><button class="counter-btn" onclick="decrement('buu', 'buuCompra', 20, 'precioTotalCarrito')">-</button><span id="buu">1</span></h3><button class="counter-btn" onclick="increment('buu', 'buuCompra', 20, 'precioTotalCarrito')">+</button></td>
-						<td class="p-5"><h3><span id="buuCompra">20</span></h3></td>						
+						<td class="p-5"><h3><button class="counter-btn" onclick="decrement('producto3', 'productoPrecio3', 20, 'precioTotalCarrito')">-</button><span id="producto3">1</span></h3><button class="counter-btn" onclick="increment('producto3', 'productoPrecio3', 20, 'precioTotalCarrito')">+</button><button class="counter-btn" onclick="limpiarArticulo('producto3', 'productoPrecio3', 20, 'precioTotalCarrito')">x</button></td>
+						<td class="p-5"><h3><span id="productoPrecio3">20</span></h3></td>						
 						<td class="p-1"><img src="imagenesHtml/MAJIN BU.png" class="imagenesCompra"></td>
 					</tr>
 					<tr>
@@ -133,6 +133,7 @@
 					</tr>
 				</tbody>
 			</table>
+			<button class="counter-btn" onclick="limpiarCarrito()">LIMPIAR CARRITO</button>
 		</div>
 	</div>
 
